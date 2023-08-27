@@ -21,101 +21,101 @@ public class Shelter {
 	// 16 pets for the shelter
 	public void existingPets() {
 
-		Dog dog1 = new Dog("", "", 18, 22, 17, 15, 24, 20, true, true);
+		OrganicDog dog1 = new OrganicDog("", "",50, 50, 10, 5, 5);
 		dog1.setName("Snoopy");
 		dog1.setDescription("White Beagle");
-		dog1.setDays(20);
+		// dog1.setDays(20);
 		shelterMap.put("Snoopy", dog1);
 
-		Dog dog2 = new Dog("", "", 30, 32, 37, 25, 38, 29, true, true);
+		OrganicDog dog2 = new OrganicDog("", "",50, 50, 10, 5,5);
 		dog2.setName("Scooby");
 		dog2.setDescription("Hound");
-		dog2.setDays(29);
+		// dog2.setDays(29);
 		shelterMap.put("Scooby", dog2);
 
-		Dog dog3 = new Dog("", "", 26, 25, 33, 18, 14, 12, true, true);
+		OrganicDog dog3 = new OrganicDog("", "",50, 50, 10, 5, 5);
 		dog3.setName("Pongo");
 		dog3.setDescription("Dalmatian");
-		dog3.setDays(12);
+		// dog3.setDays(12);
 		shelterMap.put("Pongo", dog3);
 
-		Dog dog4 = new Dog("", "", 34, 12, 19, 39, 27, 30, true, true);
+		OrganicDog dog4 = new OrganicDog("", "",50, 50, 10, 5, 5);
 		dog4.setName("Hooch");
 		dog4.setDescription("Mastiff");
-		dog4.setDays(30);
+		// dog4.setDays(30);
 		shelterMap.put("Hooch", dog4);
 
-		Cat cat1 = new Cat("", "", 11, 14, 16, 22, 12, 18, false, true);
+		OrganicCat cat1 = new OrganicCat("", "",50, 50, 10, 5, 5);
 		cat1.setName("Garfield");
 		cat1.setDescription("Orange Tabby");
-		cat1.setDays(18);
+		// cat1.setDays(18);
 		shelterMap.put("Garfield", cat1);
 
-		Cat cat2 = new Cat("", "", 23, 25, 36, 12, 33, 17, false, true);
+		OrganicCat cat2 = new OrganicCat("", "", 50, 50, 10, 5, 5);
 		cat2.setName("Tom");
 		cat2.setDescription("Alley Cat");
-		cat2.setDays(17);
+		// cat2.setDays(17);
 		shelterMap.put("Tom", cat2);
 
-		Cat cat3 = new Cat("", "", 18, 33, 45, 25, 19, 22, false, true);
+		OrganicCat cat3 = new OrganicCat(petName,description, 50, 50, 5, 10, 5);
 		cat3.setName("Sassy");
 		cat3.setDescription("Black Tabby");
-		cat3.setDays(22);
+		// cat3.setDays(22);
 		shelterMap.put("Sassy", cat3);
 
-		Cat cat4 = new Cat("", "", 29, 44, 36, 32, 42, 33, false, true);
+		OrganicCat cat4 = new OrganicCat("", "",50, 50, 10, 5, 5);
 		cat4.setName("Mr. Bigglesworth");
 		cat4.setDescription("Hairless");
-		cat4.setDays(33);
+		// cat4.setDays(33);
 		shelterMap.put("Mr. Bigglesworth", cat4);
 
-		Robot robot1 = new Robot("", "", 80, 100, 28, true, false);
-		robot1.setName("Bruiser");
-		robot1.setDescription("Chihuahua");
-		robot1.setDays(28);
-		shelterMap.put("Bruiser", robot1);
+		RoboDog roboDog1 = new RoboDog(petName, description, false, true, 50, 100);
+		roboDog1.setName("Bruiser");
+		roboDog1.setDescription("Chihuahua");
+		// roboDog1.setDays(28);
+		shelterMap.put("Bruiser", roboDog1);
 
-		Robot robot2 = new Robot("", "", 100, 10, 44, true, false);
-		robot2.setName("Lassie");
-		robot2.setDescription("Collie");
-		robot2.setDays(44);
+		RoboDog roboDog2 = new RoboDog( petName,description, false, true, 50, 100 );
+		roboDog2.setName("Lassie");
+		roboDog2.setDescription("Collie");
+		// roboDog2.setDays(44);
 
-		shelterMap.put("Lassie", robot2);
-		Robot robot3 = new Robot("", "", 70, 100, 23, true, false);
-		robot3.setName("Clifford");
-		robot3.setDescription("Big Red Dog");
-		robot3.setDays(23);
-		shelterMap.put("Clifford", robot3);
+		shelterMap.put("Lassie", roboDog2);
+		RoboDog roboDog3 = new RoboDog(petName, description, false, true, 50, 100);
+		roboDog3.setName("Clifford");
+		roboDog3.setDescription("Big Red Dog");
+		// roboDog3.setDays(23);
+		shelterMap.put("Clifford", roboDog3);
 
-		Robot robot4 = new Robot("", "", 90, 100, 7, true, false);
-		robot4.setName("Air Bud");
-		robot4.setDescription("Golden Retriever");
-		robot4.setDays(7);
-		shelterMap.put("AirBud", robot4);
+		RoboDog roboDog4 = new RoboDog(petName, description, false, true, 50, 100);
+		roboDog4.setName("Air Bud");
+		roboDog4.setDescription("Golden Retriever");
+		// roboDog4.setDays(7);
+		shelterMap.put("AirBud", roboDog4);
 
-		Robot robot5 = new Robot("", "", 80, 100, 18, false, false);
-		robot5.setName("Salem");
-		robot5.setDescription("Black Witch Cat");
-		robot5.setDays(18);
-		shelterMap.put("Salem", robot5);
+		RoboCat roboCat5 = new RoboCat(petName, description, false, true, 50, 100);
+		roboCat5.setName("Salem");
+		roboCat5.setDescription("Black Witch Cat");
+		// robot5.setDays(18);
+		shelterMap.put("Salem", roboCat5);
 
-		Robot robot6 = new Robot("", "", 80, 100, 24, false, false);
-		robot6.setName("Morris");
-		robot6.setDescription("Commercial Cat");
-		robot6.setDays(21);
-		shelterMap.put("Morris", robot6);
+		RoboCat roboCat6 = new RoboCat(petName, description, false, true, 50, 100);
+		roboCat6.setName("Morris");
+		roboCat6.setDescription("Commercial Cat");
+		// robot6.setDays(21);
+		shelterMap.put("Morris", roboCat6);
 
-		Robot robot7 = new Robot("", "", 90, 100, 34, false, false);
-		robot7.setName("Grumpy Cat");
-		robot7.setDescription("Tardar");
-		robot7.setDays(33);
-		shelterMap.put("Grumpy Cat", robot7);
+		RoboCat roboCat7 = new RoboCat(petName, description, false, true, 50, 100);
+		roboCat7.setName("Grumpy Cat");
+		roboCat7.setDescription("Tardar");
+		// roboCat7.setDays(33);
+		shelterMap.put("Grumpy Cat", roboCat7);
 
-		Robot robot8 = new Robot("", "", 90, 10, 14, false, false);
-		robot8.setName("Mr. Jinx");
-		robot8.setDescription("Himalayan");
-		robot8.setDays(14);
-		shelterMap.put("Mr.Jinx", robot8);
+		RoboCat roboCat8 = new RoboCat("", "", false, true, 50, 100);
+		roboCat8.setName("Mr. Jinx");
+		roboCat8.setDescription("Himalayan");
+		// roboCat8.setDays(14);
+		shelterMap.put("Mr.Jinx", roboCat8);
 
 	}
 
@@ -165,10 +165,10 @@ public class Shelter {
 		KeyboardInput newDescription = new KeyboardInput();
 		description = newDescription.getStringValue("");
 		System.out.println("");
-		Dog pet = new Dog(petName, description, 10, 10, 0, 0, 0, 1, true, true);
+		OrganicDog pet = new OrganicDog(petName, description, 50, 50, 10, 5, 5);
 		pet.setName(petName);
 		pet.setDescription(description);
-		pet.setDays(1);
+		// pet.setDays(1);
 		shelterMap.put(petName, pet);
 		System.out.println();
 
@@ -185,10 +185,10 @@ public class Shelter {
 		KeyboardInput newDescription = new KeyboardInput();
 		description = newDescription.getStringValue("");
 		System.out.println("");
-		Cat pet = new Cat(petName, description, 10, 10, 0, 0, 0, 1, false, true);
+		OrganicCat pet = new OrganicCat(petName, description, 50, 50, 5, 5, 5);
 		pet.setName(petName);
 		pet.setDescription(description);
-		pet.setDays(1);
+		// pet.setDays(1);
 		shelterMap.put(petName, pet);
 		System.out.println();
 	}
@@ -204,10 +204,10 @@ public class Shelter {
 		KeyboardInput newDescription = new KeyboardInput();
 		description = newDescription.getStringValue("");
 		System.out.println("");
-		Robot pet = new Robot(petName, description, 75, 100, 1, true, false);
+		RoboDog pet = new RoboDog(petName, description,false, true, 50, 100);
 		pet.setName(petName);
 		pet.setDescription(description);
-		pet.setDays(1);
+		// pet.setDays(1);
 		shelterMap.put(petName, pet);
 		System.out.println();
 	}
@@ -223,10 +223,10 @@ public class Shelter {
 		KeyboardInput newDescription = new KeyboardInput();
 		description = newDescription.getStringValue("");
 		System.out.println("");
-		Robot pet = new Robot(petName, description, 75, 100, 1, false, false);
+		RoboCat pet = new RoboCat(petName, description, false, true, 50, 100);
 		pet.setName(petName);
 		pet.setDescription(description);
-		pet.setDays(1);
+		// pet.setDays(1);
 		shelterMap.put(petName, pet);
 		System.out.println();
 
@@ -340,14 +340,14 @@ public class Shelter {
 					switch (choice2) {
 						case 1:
 							entry.getValue().tick();
-							entry.getValue().feed();
+							entry.getValue().batteryLevel();
 							System.out.println();
 							System.out.println("After Charging Pet");
 							entry.getValue().infoPet();
 							break;
 						case 2:
 							entry.getValue().tick();
-							entry.getValue().water();
+							entry.getValue().oilLevel();
 							System.out.println();
 							System.out.println("After Changing Oil");
 							entry.getValue().infoPet();
@@ -363,46 +363,47 @@ public class Shelter {
 				}
 
 				if (entry.getValue().isCanine() == false && entry.getValue().isAlive() == true) {
+					OrganicDog dog = (OrganicDog)entry.getValue();
 					KeyboardInput num1 = new KeyboardInput();
 
 					choice2 = num1
 							.getIntegerValue(
-									"1) Feed  2) Water  3) Clean  4) Play  5) Clean Litter  6) Skip a day");
+									"1) Feed  2) Water  3) Clean  4) Play  5) Clean cage  6) Skip a day");
 
 					switch (choice2) {
 						case 1:
-							entry.getValue().feed();
+						dog.feed();
 							entry.getValue().tick();
 							System.out.println();
-							System.out.println("After Feeding Cat");
+							System.out.println("After Feeding dog");
 							entry.getValue().infoPet();
 							break;
 						case 2:
-							entry.getValue().water();
+							dog.water();
 							entry.getValue().tick();
 							System.out.println();
-							System.out.println("After Watering Cat");
+							System.out.println("After Watering dog");
 							entry.getValue().infoPet();
 							break;
 						case 3:
-							entry.getValue().clean();
+							dog.clean();
 							entry.getValue().tick();
 							System.out.println();
-							System.out.println("After Cleaning Cat");
+							System.out.println("After Cleaning dog");
 							entry.getValue().infoPet();
 							break;
 						case 4:
-							entry.getValue().play();
+							dog.play();
 							entry.getValue().tick();
 							System.out.println();
-							System.out.println("After Playing with Cat");
+							System.out.println("After Playing with dog");
 							entry.getValue().infoPet();
 							break;
 						case 5:
-							entry.getValue().cleanLitter();
+							dog.cleanCage();
 							entry.getValue().tick();
 							System.out.println();
-							System.out.println("After Changing Litter");
+							System.out.println("After Changing cage");
 							entry.getValue().infoPet();
 							break;
 						case 6:
