@@ -234,25 +234,28 @@ public class Shelter {
 
 	// 5 methods to list pets
 	public void listPet() {
-		for (Map.Entry<String, Pet> entry : shelterMap.entrySet()) {
-			if (entry.getValue().isAlive() == true && entry.getValue().isCanine() == true) {
-				System.out.print("Organic Dog  - ");
-			}
-			if (entry.getValue().isAlive() == true && entry.getValue().isCanine() == false) {
-				System.out.print("Organic Cat  - ");
-			}
-			if (entry.getValue().isAlive() == false && entry.getValue().isCanine() == true) {
-				System.out.print("Robotic Dog  - ");
-			}
-			if (entry.getValue().isAlive() == false && entry.getValue().isCanine() == false) {
-				System.out.print("Robotic Cat  - ");
-			}
-			System.out.println(entry.getKey() + "   " + entry.getValue().getDescription());
-			entry.getValue().infoPet();
-			Console console = System.console();
-			System.out.println("Press ENTER key to continue...");
-			console.readLine();
+		for(Pet pet: shelterMap.values()) {
+			System.out.println("petName: " + pet.getName() + " pet description : " + pet.getDescription() + " isCanine : " + pet.isCanine() + " isAlive : " + pet.isAlive());
 		}
+		// for (Map.Entry<String, Pet> entry : shelterMap.entrySet()) {
+		// 	if (entry.getValue().isAlive() == true && entry.getValue().isCanine() == true) {
+		// 		System.out.print("I am type Organic Dog  - " + (entry instanceof OrganicDog) + " ");
+		// 	}
+		// 	if (entry.getValue().isAlive() == true && entry.getValue().isCanine() == false) {
+		// 		System.out.print("Organic Cat  - ");
+		// 	}
+		// 	if (entry.getValue().isAlive() == false && entry.getValue().isCanine() == true) {
+		// 		System.out.print("I am type RoboticDog  - " + (entry instanceof OrganicDog) + " ");
+		// 	}
+		// 	if (entry.getValue().isAlive() == false && entry.getValue().isCanine() == false) {
+		// 		System.out.print("I am type RoboticCat - " + (entry instanceof OrganicCat) + " ");
+		// 	}
+		// 	System.out.println(entry.getKey() + "   " + entry.getValue().getDescription());
+		// 	entry.getValue().infoPet();
+		// 	Console console = System.console();
+		// 	System.out.println("Press ENTER key to continue...");
+		// 	console.readLine();
+		// }
 	}
 
 	public void listOrganicDog() {
@@ -320,7 +323,8 @@ public class Shelter {
 				carePet();
 				break;
 			case 2:
-				removePet();
+		String pet = num1.getStringValue("enter pets name");
+				removePet(pet);
 				break;
 			case 3:
 				break;
@@ -362,7 +366,7 @@ public class Shelter {
 					console.readLine();
 				}
 
-				if (entry.getValue().isCanine() == false && entry.getValue().isAlive() == true) {
+				if (entry.getValue().isCanine() == true && entry.getValue().isAlive() == true) {
 					OrganicDog dog = (OrganicDog)entry.getValue();
 					KeyboardInput num1 = new KeyboardInput();
 
@@ -417,42 +421,43 @@ public class Shelter {
 					console.readLine();
 				}
 
-				if (entry.getValue().isCanine() == true && entry.getValue().isAlive() == true) {
+				if (entry.getValue().isCanine() == false && entry.getValue().isAlive() == true) {
+					OrganicCat cat = (OrganicCat)entry.getValue();
 					KeyboardInput num1 = new KeyboardInput();
 					choice2 = num1
-							.getIntegerValue("1) Feed  2) Water  3) Clean  4) Play  5) Clean Cage  6)Skip a day");
+							.getIntegerValue("1) Feed  2) Water  3) Clean  4) Play  5) clean litter  6)Skip a day");
 
 					switch (choice2) {
 						case 1:
-							entry.getValue().feed();
+							cat.feed();
 							entry.getValue().tick();
 							System.out.println();
 							System.out.println("After Feeding Dog");
 							entry.getValue().infoPet();
 							break;
 						case 2:
-							entry.getValue().water();
+							cat.water();
 							entry.getValue().tick();
 							System.out.println();
 							System.out.println("After Watering Dog");
 							entry.getValue().infoPet();
 							break;
 						case 3:
-							entry.getValue().clean();
+							cat.clean();
 							entry.getValue().tick();
 							System.out.println();
 							System.out.println("After Cleaning Dog");
 							entry.getValue().infoPet();
 							break;
 						case 4:
-							entry.getValue().play();
+							cat.play();
 							entry.getValue().tick();
 							System.out.println();
 							System.out.println("After Playing with Dog");
 							entry.getValue().infoPet();
 							break;
 						case 5:
-							entry.getValue().cleanCage();
+							cat.cleanLitter();
 							entry.getValue().tick();
 							System.out.println();
 							System.out.println("After Cleaning Cage");
@@ -474,53 +479,55 @@ public class Shelter {
 
 	}
 
-	public void removePet() {
+	public void removePet(String petName) {
+		shelterMap.remove(petName);
 
-		Iterator<Map.Entry<String, Pet>> iterator = shelterMap.entrySet().iterator();
 
-		while (iterator.hasNext()) {
-			Map.Entry<String, Pet> entry = iterator.next();
-			String key = entry.getKey();
-			System.out.println();
-			System.out.println(key + " " + entry.getValue().getDescription());
-			if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == true) {
-				System.out.println("is dead.");
-			}
-			if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == false) {
-				System.out.println("is non-functioning.");
-			}
-			KeyboardInput num1 = new KeyboardInput();
-			System.out.println();
-			choice2 = num1.getIntegerValue("\r\n" + //
-					"1) Remove Pet from List   2) Skip");
-			System.out.println();
+		// Iterator<Map.Entry<String, Pet>> iterator = shelterMap.entrySet().iterator();
 
-			switch (choice2) {
-				case 1:
-					if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == false) {
-						System.out.println(key + " has been sent to the junkyard");
-						System.out.println();
-					}
-					if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == true) {
-						System.out.println(key + " has been sent to the pet cemetary");
-						System.out.println();
-					}
-					if (entry.getValue().getDays() > 0) {
-						System.out.println(key + " has been adopted after " + entry.getValue().getDays() + " days");
-						System.out.println();
-					}
-					shelterMap.remove(key);
-					Console console = System.console();
-					System.out.println("Press ENTER key to continue...");
-					console.readLine();
-					return;
-				case 2:
-					break;
+		// while (iterator.hasNext()) {
+		// 	Map.Entry<String, Pet> entry = iterator.next();
+		// 	String key = entry.getKey();
+		// 	System.out.println();
+		// 	System.out.println(key + " " + entry.getValue().getDescription());
+		// 	if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == true) {
+		// 		System.out.println("is dead.");
+		// 	}
+		// 	if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == false) {
+		// 		System.out.println("is non-functioning.");
+		// 	}
+		// 	KeyboardInput num1 = new KeyboardInput();
+		// 	System.out.println();
+		// 	choice2 = num1.getIntegerValue("\r\n" + //
+		// 			"1) Remove Pet from List   2) Skip");
+		// 	System.out.println();
 
-			}
+			// switch (choice2) {
+			// 	case 1:
+			// 		if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == false) {
+			// 			System.out.println(key + " has been sent to the junkyard");
+			// 			System.out.println();
+			// 		}
+			// 		if (entry.getValue().getDays() == 0 && entry.getValue().isAlive() == true) {
+			// 			System.out.println(key + " has been sent to the pet cemetary");
+			// 			System.out.println();
+			// 		}
+			// 		if (entry.getValue().getDays() > 0) {
+			// 			System.out.println(key + " has been adopted after " + entry.getValue().getDays() + " days");
+			// 			System.out.println();
+			// 		}
+			// 		shelterMap.remove(key);
+			// 		Console console = System.console();
+			// 		System.out.println("Press ENTER key to continue...");
+			// 		console.readLine();
+			// 		return;
+			// 	case 2:
+			// 		break;
+
+			// }
 
 		}
 		;
 
 	}
-}
+
